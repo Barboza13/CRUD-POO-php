@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     ];
     
     if ($CRUD->saveData($data)) {
-        echo "Se guardaron los datos: " . $data["full_name"] . $data["CI"] . $data["email"];
+        echo "Datos guardados.";
     }
 } else {
     echo "Error al guardar los datos";

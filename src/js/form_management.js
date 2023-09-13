@@ -1,5 +1,6 @@
 export default function formManagement() {
   const $form = document.querySelector(".form")
+  const $message = document.getElementById("message")
 
   $form.addEventListener("submit", async (e) => {
     e.preventDefault()
@@ -21,7 +22,7 @@ export default function formManagement() {
         return response.text()
       })
       .then(data => {
-        console.log("Respuesta del servidor: " + data)
+        $message.innerText = data
       })
       .catch(error => {
         console.error("Error: " + error.message)
