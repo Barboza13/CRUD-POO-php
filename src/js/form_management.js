@@ -22,10 +22,20 @@ export default function formManagement() {
         return response.text()
       })
       .then(data => {
-        $message.innerText = data
+        $message.innerText = data;
+        console.log("Mensaje establecido")
+
+        setTimeout(() => {
+          console.log("Dentro del timeout")
+          $message.innerText = "";
+        }, 3000);
+
       })
       .catch(error => {
         console.error("Error: " + error.message)
       })
+
+    $form.reset()
+    console.log("reset")
   })
 }

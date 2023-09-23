@@ -14,5 +14,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Datos guardados.";
     }
 } else {
-    echo "Error al guardar los datos";
+    $data = $CRUD->getAllData();
+    $jsonData = json_encode($data);
+    header('Content-Type: application/json');
+    echo $jsonData;
 }
