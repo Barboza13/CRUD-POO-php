@@ -10,7 +10,7 @@ export default function formManagement() {
      */
     const formData = new FormData($form)
 
-    await fetch("../php/Guardar_cliente.php", {
+    await fetch("../php/api.php", {
       method: "POST",
       body: formData
     })
