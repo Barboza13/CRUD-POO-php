@@ -8,7 +8,7 @@ class connectionDB {
     public function __construct() {
     }
 
-    public function connection() {
+    public function connection(): PDO {
         $this->PDO = new PDO("mysql:host=localhost;dbname=$this->dbname", $this->username, $this->password);
         $this->PDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         return $this->PDO;
