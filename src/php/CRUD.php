@@ -13,6 +13,11 @@ class CRUD extends connectionDB {
         }
     }
 
+    /**
+     * Save data.
+     * @param array $data
+     * @return bool
+     */
     public function saveData($data = []): bool
     {
         try {
@@ -31,6 +36,10 @@ class CRUD extends connectionDB {
         return $value;
     }
 
+    /**
+     * Get data.
+     * @return array
+     */
     public function getAllData(): array
     {    
         try {
@@ -43,6 +52,11 @@ class CRUD extends connectionDB {
         }
     }
 
+    /**
+     * Get data by ID.
+     * @param int $id
+     * @return array
+     */
     public function getDataById($id): array
     {
         try {
@@ -55,7 +69,12 @@ class CRUD extends connectionDB {
         }
     }
 
-    public function deleteData($id): bool
+    /**
+     * Delete data.
+     * @param int $id
+     * @return bool
+     */
+    public function deleteData(int $id): bool
     {
         try {
             $query = "DELETE FROM clientes WHERE id=" . $id;
@@ -67,7 +86,13 @@ class CRUD extends connectionDB {
         }
     }
 
-    public function updateData($data = [], $id): bool
+    /**
+     * Update data.
+     * @param array $data
+     * @param int $id
+     * @return bool
+     */
+    public function updateData($data = [], int $id): bool
     {
         try {
             $query = "UPDATE clientes SET (full_name = ?, CI = ?, email = ?) WHERE id=" . $id;
