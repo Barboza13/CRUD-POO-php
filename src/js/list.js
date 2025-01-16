@@ -1,5 +1,5 @@
-import fillTable from "./fill_table.js"
+import fetchData from './fetch_data.js'
 
-document.addEventListener("DOMContentLoaded", (e) => {
-  fillTable()
+document.addEventListener('DOMContentLoaded', (e) => {
+  fetchData()
 })

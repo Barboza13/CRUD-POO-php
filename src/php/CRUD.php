@@ -14,11 +14,11 @@ class CRUD extends connectionDB {
     }
 
     /**
-     * Save data.
+     * Save Data.
      * @param array $data
-     * @return bool
+     * @return array
      */
-    public function saveData($data = []): bool
+    public function saveData(array $data): array
     {
         try {
             $query = "INSERT INTO clientes (full_name, CI, email) VALUES (?, ?, ?)";
@@ -26,14 +26,21 @@ class CRUD extends connectionDB {
             $statement->bindParam(1, $data['full_name'], PDO::PARAM_STR);
             $statement->bindParam(2, $data['CI'], PDO::PARAM_STR);
             $statement->bindParam(3, $data['email'], PDO::PARAM_STR);
-            $value = $statement->execute();
-        } catch (PDOException $e) {
-            die("Error al guardar:" . $e->getMessage());
-        } finally {
-            $statement = null;
-        }
+            $statement->execute();
 
-        return $value;
+            return [
+                "full_name" => $data["full_name"],
+                "CI" => $data["CI"],
+                "email" => $data["email"],
+            ];
+        } catch (PDOException $e) {
+            return [
+                "message" => "¡Ocurrio un error al guardar el cliente!",
+                "error" => $e->getMessage()
+            ];
+        } finally {
+            $statement = null; # Close connection.
+        }
     }
 
     /**
@@ -41,14 +48,19 @@ class CRUD extends connectionDB {
      * @return array
      */
     public function getAllData(): array
-    {    
+    {
         try {
             $query = 'SELECT * FROM clientes';
             $statement = $this->PDO->query($query);
             $data = $statement->fetchAll(PDO::FETCH_ASSOC);
             return $data;
         } catch (PDOException $e) {
-            die("Error al traer todos los datos: " . $e->getMessage());
+            return [
+                "message" => "¡Error al obtener los clientes!",
+                "error" => $e->getMessage()
+            ];
+        } finally {
+            $statement = null; # Close connection.
         }
     }
 
