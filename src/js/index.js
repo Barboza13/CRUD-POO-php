@@ -1,5 +1,5 @@
-import formManagement from "./form_management.js"
+import submitForm from './submit_form.js'
 
-document.addEventListener("DOMContentLoaded", (e) => {
-  formManagement()
+document.addEventListener('DOMContentLoaded', (e) => {
+  submitForm()
 })

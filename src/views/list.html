@@ -1,41 +1,37 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/list.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="../css/list.css" />
     <title>Lista</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <header>
-        <nav class="navbar">
-            <h1 class="title">Navegacion</h1>
-            <a class="navbar-item" href="../views/index.html">Formulario</a>
-            <a class="navbar-item" href="../views/list.html">Lista</a>
-        </nav>
+      <nav class="navbar">
+        <h1 class="title">Navegacion</h1>
+        <a class="navbar-item" href="../views/index.html">Formulario</a>
+        <a class="navbar-item" href="../views/list.html">Lista</a>
+      </nav>
     </header>
 
     <main class="container">
-        <table class="table">
+      <table class="table">
+        <thead class="table-head">
+          <tr class="table-tr">
+            <th class="table-th">#</th>
+            <th class="table-th">Nombre</th>
+            <th class="table-th">Cedula</th>
+            <th class="table-th">Email</th>
+          </tr>
+        </thead>
 
-            <thead class="table-head">
-                <tr class="table-tr">
-                    <th class="table-th">#</th>
-                    <th class="table-th">Nombre</th>
-                    <th class="table-th">Cedula</th>
-                    <th class="table-th">Email</th>
-                </tr>
-            </thead>
-
-            <tbody class="table-body">
-
-            </tbody>
-        </table>
+        <tbody class="table-body"></tbody>
+      </table>
     </main>
 
     <script type="module" src="../js/list.js"></script>
-</body>
-
+  </body>
 </html>

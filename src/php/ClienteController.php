@@ -1,7 +1,8 @@
 <?php
 require "./connectionDB.php";
 
-class CRUD extends connectionDB {
+class ClienteController extends connectionDB
+{
     private $PDO;
 
     public function __construct()
@@ -20,21 +21,25 @@ class CRUD extends connectionDB {
      */
     public function saveData(array $data): array
     {
+        $timestamp = time(); # Obtiene el timestamp actual.
+
         try {
-            $query = "INSERT INTO clientes (full_name, CI, email) VALUES (?, ?, ?)";
+            $query = "INSERT INTO clientes (full_name, CI, email, created_at) VALUES (?, ?, ?, ?)";
             $statement = $this->PDO->prepare($query);
             $statement->bindParam(1, $data['full_name'], PDO::PARAM_STR);
             $statement->bindParam(2, $data['CI'], PDO::PARAM_STR);
             $statement->bindParam(3, $data['email'], PDO::PARAM_STR);
+            $statement->bindParam(4, $timestamp, PDO::PARAM_STR);
             $statement->execute();
 
             return [
-                "full_name" => $data["full_name"],
-                "CI" => $data["CI"],
-                "email" => $data["email"],
+                "status" => true,
+                "data" => $data,
+                "message" => "¡Cliente guardado exitosamente!"
             ];
         } catch (PDOException $e) {
             return [
+                "status" => false,
                 "message" => "¡Ocurrio un error al guardar el cliente!",
                 "error" => $e->getMessage()
             ];
@@ -53,9 +58,15 @@ class CRUD extends connectionDB {
             $query = 'SELECT * FROM clientes';
             $statement = $this->PDO->query($query);
             $data = $statement->fetchAll(PDO::FETCH_ASSOC);
-            return $data;
+
+            return [
+                "status" => true,
+                "data" => $data,
+                "message" => "¡Datos obtenidos con exito!"
+            ];
         } catch (PDOException $e) {
             return [
+                "status" => false,
                 "message" => "¡Error al obtener los clientes!",
                 "error" => $e->getMessage()
             ];
@@ -115,7 +126,7 @@ class CRUD extends connectionDB {
             $value = $statement->execute();
             return $value;
         } catch (PDOException $e) {
-            die("Error al actualizar el registro: ". $e->getMessage());
+            die("Error al actualizar el registro: " . $e->getMessage());
         }
     }
 }

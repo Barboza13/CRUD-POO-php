@@ -11,8 +11,8 @@ const fetchData = async () => {
       throw new Error(errorData.message)
     }
 
-    const data = await response.json()
-    fillTable(data)
+    const json = await response.json()
+    fillTable(json.data)
   } catch (error) {
     console.error(`Error: ${error}`)
   }
@@ -20,6 +20,7 @@ const fetchData = async () => {
 
 const fillTable = (data) => {
   let counter = 1
+
   data.forEach((element) => {
     const $tr = document.createElement('tr')
     const $counter = document.createElement('td')
