@@ -21,7 +21,8 @@ class ClienteController extends connectionDB
      */
     public function saveData(array $data): array
     {
-        $timestamp = time(); # Obtiene el timestamp actual.
+        $data_time = new DateTime();
+        $timestamp = $data_time->format("Y-m-d H:i:s");
 
         try {
             $query = "INSERT INTO clientes (full_name, CI, email, created_at) VALUES (?, ?, ?, ?)";

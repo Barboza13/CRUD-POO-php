@@ -28,6 +28,10 @@ const fillTable = (data) => {
     const $CI = document.createElement('td')
     const $email = document.createElement('td')
     $tr.style.color = '#000'
+    $counter.classList.add('table-td')
+    $name.classList.add('table-td')
+    $CI.classList.add('table-td')
+    $email.classList.add('table-td')
 
     $counter.textContent = counter++
     $name.textContent = element.full_name

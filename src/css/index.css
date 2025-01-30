@@ -1,63 +1,93 @@
+/* General sytles */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+/* Header styles */
 .navbar {
-    display: flex;
-    position: sticky;
-    top: 0;
-    justify-content: center;
-    align-items: center;
-    background: #222;
-    height: 3rem;
-    color: #fff;
+  display: flex;
+  position: sticky;
+  top: 0;
+  justify-content: center;
+  align-items: center;
+  background: #222;
+  height: 3rem;
+  color: #fff;
 }
 
 .navbar-item {
-    text-decoration: none;
-    color: #fff;
-    padding-left: 1rem;
+  text-decoration: none;
+  color: #fff;
+  padding-left: 1rem;
 }
 
 .navbar-item:hover {
-    color: #ffe4c4;
+  color: #ffe4c4;
 }
 
+/* Main content styles */
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .form {
-    position: absolute;
-    text-align: center;
-    background: #222;
-    padding: 1rem;
-    border-radius: 5px;
-    color: #fff;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  background: #222;
+  width: 40%;
+  height: 60%;
+  padding: 1rem;
+  border-radius: 5px;
+  color: #fff;
+  box-shadow: 8px 8px 15px 3px rgba(0, 0, 0, 0.5);
+}
+
+.inputs-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  gap: 2px;
 }
 
 .form input {
-    padding: .5rem;
-    margin: .5rem;
+  width: inherit;
+  padding: 0.7rem;
+  color: #fff;
+  background: transparent;
+  outline: none;
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+
+.form input:hover,
+.form input:focus {
+  border: 1px solid #fff;
 }
 
 .form-button {
-    width: 50%;
-    background: green;
-    height: 2rem;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    color: #fff;
+  font-size: large;
+  width: 50%;
+  background: green;
+  height: 2rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #fff;
 }
 
 .form-button:hover {
-    background: greenyellow;
+  background: rgb(0, 104, 0);
 }
